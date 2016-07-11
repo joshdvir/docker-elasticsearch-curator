@@ -4,8 +4,8 @@ This only job executed by the docker built from this repository is to clean the 
 
 It can be run as follows:
 
-	docker run -d -e INTERVAL_IN_HOURS=24 -e OLDER_THAN_IN_DAYS="10" --link es1:elasticsearch visity/elasticsearch-curator
-	
+	docker run -d -e ELASTICSEARCH_HOST=es.stam.com -e INTERVAL_IN_HOURS=24 -e OLDER_THAN_IN_DAYS="10" --link es1:elasticsearch visity/elasticsearch-curator
+
 where **es1** is the name of the elasticsearch container and
 
 * **INTERVAL\_IN\_HOURS**: The amount of time between two curator runs

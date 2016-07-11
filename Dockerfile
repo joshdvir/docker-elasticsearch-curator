@@ -10,9 +10,6 @@ RUN arch="$(dpkg --print-architecture)" \
 	&& rm /usr/local/bin/gosu.asc \
 	&& chmod +x /usr/local/bin/gosu
 
-# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r curator && useradd -r -g curator curator
-
 RUN pip install elasticsearch-curator==3.4.0
 
 COPY docker-entrypoint.sh /
@@ -23,4 +20,4 @@ ENV ELASTICSEARCH_HOST=elasticsearch
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["curator"] 
+CMD ["curator"]
